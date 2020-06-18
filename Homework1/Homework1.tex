@@ -374,8 +374,23 @@ F & T & T & F & T & T & T & F & F\\
 F & F & T & T & T & T & F & T & F\\
 \end{array}
 \end{displaymath}
-Since the table is false for all values in the last (highlighted) column, \((p{\rightarrow}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q){\land}({\neg}p{\rightarrow}{\neg}q)\) is unsatisfiable.
-
+Since the table is false for all values in the last (highlighted) column, \((p{\rightarrow}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q){\land}({\neg}p{\rightarrow}{\neg}q)\) is unsatisfiable.\\
+I also want to show a ``slick'' way to do this (as opposed to the method shown in class):\\
+\begin{align*}
+(p{\rightarrow}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q){\land}({\neg}p{\rightarrow}{\neg}q)
+&{\equiv}(p{\rightarrow}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q){\land}(q{\rightarrow}p)
+&& {\text {(${\neg}p{\rightarrow}{\neg}q{\equiv}q{\rightarrow}p$ By Contrapositive)}}\\
+&{\equiv}(p{\rightarrow}q){\land}(q{\rightarrow}p){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q)
+&& {\text {(Commutative Property)}}\\
+&{\equiv}(p{\rightarrow}q){\land}(q{\rightarrow}p){\land}(p{\rightarrow}{\neg}q){\land}({\neg}q{\rightarrow}p)
+&& {\text {(${\neg}p{\rightarrow}q{\equiv}{\neg}q{\rightarrow}p$ By Contrapositive)}}\\
+&{\equiv}(p{\iff}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}q{\rightarrow}p)
+&& {\text {(Page 29, Table 8)}}\\
+&{\equiv}(p{\iff}q){\land}(p{\iff}{\neg}q)
+&& {\text {(Page 29, Table 8)}}
+\end{align*}
+The last statement is a contradiction, as for the statement \(a{\iff}b\) to be true, then \(a\) and \(b\) must have the same value. However, for the last statement to be true, \(p\) must have the same value as both \(q\) and \({\neg}q\) which cannot be true , and thus the proposition is unsatisfiable.\\
+\textbf{Part C}\\
 \begin{displaymath}
 \begin{array}{|c c|c|c|c|g|}
 p & q & {\neg}p & p {\iff} q & {\neg} p {\iff} q & (p{\iff}q){\land}({\neg}p{\iff}q)\\
@@ -386,6 +401,6 @@ F & T & T & F & T & F\\
 F & F & T & T & F & F\\
 \end{array}
 \end{displaymath}
-Since the table is false for all values in the last (highlighted) column, \((p{\iff}q){\land}({\neg}p{\iff}q)\) is unsatisfiable.
+Since the table is false for all values in the last (highlighted) column, \((p{\iff}q){\land}({\neg}p{\iff}q)\) is unsatisfiable. This can also be justified using the reasoning found in Part B, where \((p{\iff}q){\land}(p{\iff}{\neg}q)\) means that \(p\) must have the same value as both \(q\) and \({\neg}q\) which cannot be true , and thus the proposition is unsatisfiable.
 \end{homeworkProblem}
 \end{document}
