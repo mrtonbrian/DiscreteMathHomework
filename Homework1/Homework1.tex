@@ -1,11 +1,14 @@
 % Boilerplate from: https://github.com/jdavis/latex-homework-template/blob/master/homework.tex
-\documentclass{article}
+\documentclass[table]{article}
+\usepackage[table]{xcolor}
+\usepackage{amssymb}
 \usepackage{fancyhdr}
 \usepackage{extramarks}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{tikz}
+\usepackage{graphicx}
 \usepackage{enumitem}
 
 
@@ -77,6 +80,7 @@
 
 \newcommand{\solution}{\textbf{\large Solution}}
 
+\newcolumntype{g}{>{\columncolor{yellow!20}}c}
 
 \begin{document}
 \maketitle
@@ -135,7 +139,7 @@ Use a truth table to determine whether \((p{\land}{\neg}q){\rightarrow}r{\:}{\eq
 \subsection{\textbf{Solution}}
 \textbf{True}\\~\\
 \begin{displaymath}
-\begin{array}{|c c c|c|c|c|c|}
+\begin{array}{|c c c|c|g|c|g|}
 % |c c|c| means that there are three columns in the table and
 % a vertical bar ’|’ will be printed on the left and right borders,
 % and between the second and the third columns.
@@ -153,7 +157,7 @@ F & F & T & F & T & T & T\\
 F & F & F & F & T & F & T\\
 \end{array}
 \end{displaymath}
-In the above, since column \((p{\land}{\neg}q){\rightarrow}r\) and \(p{\rightarrow}(q{\lor}r)\) have matching corresponding elements, \((p{\land}{\neg}q){\rightarrow}r{\:}{\equiv}{\:}p{\rightarrow}(q{\lor}r)\). Without building the truth table, this can still be justified.\\
+In the above, since column \((p{\land}{\neg}q){\rightarrow}r\) and \(p{\rightarrow}(q{\lor}r)\) (both highlighted) have matching corresponding elements, \((p{\land}{\neg}q){\rightarrow}r{\:}{\equiv}{\:}p{\rightarrow}(q{\lor}r)\). Without building the truth table, this can still be justified.\\
 Note that \(p{\land}{\neg}q\) can only be true when \(p\) is true and \(q\) is false, which means that the statement \((p{\land}{\neg}q){\rightarrow}r\) can only be false when \(p\) is true, \(q\) is false, and \(r\) is false (which gives the implication \(T{\rightarrow}F\) which is logically equivalent to \(F\)). Using similar reasoning, since \(a{\rightarrow}b\) is only false when \(a\) is true and \(b\) is false, \(p{\rightarrow}(q{\land}r)\) is false when p is true and \(q{\land}r)\) is false, which is only true where \(q\) and \(r\) are both false. Thus, since they are both only false where \(p\) is true and both \(q\) and \(r\) are false and true otherwise, the two statements must be logically equivalent.
 \end{homeworkProblem}
 \pagebreak
@@ -181,17 +185,64 @@ Write these statements using \(p\), \(q\), \(r\) and logical connectives (includ
 \item \(r{\iff}(q{\lor}p)\)
 \end{enumerate}
 \end{homeworkProblem}
+\pagebreak
 \begin{homeworkProblem}
-\textbf{TODO}
+Find the output of each of these combinatorial circuits
+\begin{figure}[h!]
+	\includegraphics[scale=.75]{images/Prob7FigureUnannotated.png}
+\end{figure}
+\subsection{\textbf{Solution}}
+\begin{enumerate}[nosep, label=\textbf{\alph*})]
+\item \({\neg}p{\lor}{\neg}q\)
+\item \({\neg}(p{\lor}({\neg}p{\land}q))\)\\
+\end{enumerate}
+(Annotated Figures)
+\begin{figure}[h!]
+	\includegraphics[scale=.25]{images/Prob7FigureAAnnotated.jpeg}
+\end{figure}
+\begin{figure}[h!]
+	\includegraphics[scale=.25]{images/Prob7FigureBAnnotated.jpeg}
+\end{figure}
+\end{homeworkProblem}
+\pagebreak
+\begin{homeworkProblem}
+Construct a combinatorial circuit using inverters, OR gates, and AND gates that produces the output \((p{\land}{\neg}r){\lor}({\neg}q{\land}r)\) from the input bits \(p\), \(q\), and \(r\).
+\subsection{\textbf{Solution}}
+\begin{figure}[h!]
+	\includegraphics[scale=.35]{images/Prob8Solution.jpeg}
+\end{figure}
 \end{homeworkProblem}
 \begin{homeworkProblem}
-\textbf{TODO}
+A says “The two of us are both knights” and B says “A is
+a knave.”
+\subsection{\textbf{Solution}}
+\emph{\textbf{A is a Knave\\ B is a Knight}}\\~\\
+Assume A is a knight. As a result, B must also be a knight. However, if B is a knight as well, A cannot be a knight, as then B would be lying.\\
+A must then be a knave. As a result, B must be a knight, as he is telling the truth in this instance. Note that when A is a knave and B is a knight, both satisfy the requirements of the problem, as A is not telling the truth (as both of them are not knights) and B is telling the truth (as A is a knave).
 \end{homeworkProblem}
 \begin{homeworkProblem}
-\textbf{TODO}
-\end{homeworkProblem}
-\begin{homeworkProblem}
-\textbf{TODO}
+Are these system specifications consistent? “Whenever the system software is being upgraded, users cannot access the file system. If users can access the file system, then they can save new files. If users cannot save new files, then the system software is not being upgraded.”
+\subsection{\textbf{Solution}}
+System is \textbf{consistent}\\~\\
+Let:\\
+\indent u: \emph{"The system is being upgraded"}\\
+\indent f: \emph{"Users can access the file system}\\
+\indent s: \emph{"Users are able to save new files}\\
+Rewrite the sentences as:
+\begin{enumerate}[nosep, label=\arabic*)]
+\item \(u{\rightarrow}{\neg}f\)
+\item \(f{\rightarrow}s\)
+\item \({\neg}s{\rightarrow}{\neg}u\)
+\end{enumerate}
+\textbf{Case 1}\\
+Assume \(u\) to be true. By the third statement, we know that \({\neg}s\) must be false in order to keep the statement true, meaning that \(s\) must be true. By the first statement, we know that \({\neg}f\) must be true in order to keep the statement true, meaning that \(f\) is false. Statement 2 is then \({\textbf{F}}{\rightarrow}{\textbf{T}}{\equiv}{\textbf{T}}\).\\
+\textbf{Case 2a}\\
+Assume \(u\) to be false. Also assume \(f\) is true. Statement 1 is then \({\textbf{F}}{\rightarrow}{\neg}{\textbf{T}}{\equiv}{\textbf{F}}{\rightarrow}{\textbf{F}}{\equiv}{\textbf{T}}\). By the second proposition, \(s\) must be true as well. The third statement is then \({\neg}{\textbf{T}}{\rightarrow}{\neg}{\textbf{F}}{\equiv}{\textbf{F}}{\rightarrow}{\textbf{T}}{\equiv}{\textbf{T}}\).\\
+\textbf{Case 2b}\\
+Assume \(u\) to be false. Also assume \(f\) is false and that \(s\) is true. Statement 1 can then be written as \({\textbf{F}}{\rightarrow}{\neg}{\textbf{F}}{\equiv}{\textbf{F}}{\rightarrow}{\textbf{T}}{\equiv}{\textbf{T}}\). The second statement can be written as \({\textbf{F}}{\rightarrow}{\textbf{T}}{\equiv}{\textbf{T}}\). The third statement can be written as \({\neg}{\textbf{T}}{\rightarrow}{\neg}{\textbf{F}}{\equiv}{\textbf{F}}{\rightarrow}{\textbf{T}}{\equiv}{\textbf{T}}\).\\
+\textbf{Case 2c}\\
+Assume \(u\) to be false. Also assume \(f\) is false and that \(s\) is false. Statement 1 can then be written as \({\textbf{F}}{\rightarrow}{\neg}{\textbf{F}}{\equiv}{\textbf{F}}{\rightarrow}{\textbf{T}}{\equiv}{\textbf{T}}\). The second statement can be written as \({\textbf{F}}{\rightarrow}{\textbf{F}}{\equiv}{\textbf{T}}\). The third statement can be written as \({\neg}{\textbf{F}}{\rightarrow}{\neg}{\textbf{F}}{\equiv}{\textbf{T}}{\rightarrow}{\textbf{T}}{\equiv}{\textbf{T}}\).\\~\\
+Since the both the case where \(u\) is true and the case where \(u\) is false (and its subcases) have all statements true, the system is consistent.
 \end{homeworkProblem}
 \begin{homeworkProblem}
 Write the negation of the statement \emph{``The bulb in my lamp is burned out or my lamp is not plugged in."} What is the name of the logical equivalence that you applied?
@@ -231,5 +282,117 @@ For each of these compound propositions use the conditional-disjunction equivale
 \item \(({\neg}p{\lor}{\neg}q){\rightarrow}(p{\lor}q){\equiv}{\neg}({\neg}p{\lor}{\neg}q){\lor}(p{\lor}q){\equiv}\)
 \framebox[1.1\width]{\((p{\land}q){\lor}(p{\lor}q)\)}
 \end{enumerate}
+\end{homeworkProblem}
+\begin{homeworkProblem}
+Show that the following statement is a tautology by using a truth table:\\
+\([(p{\rightarrow}q){\land}(q{\rightarrow}r)]{\rightarrow}(p{\rightarrow}r)\)
+\subsection{\textbf{Solution}}
+\begin{displaymath}
+\begin{array}{|c c c|c|c|c|c|g|}
+p & q & r & p{\rightarrow}q & q{\rightarrow}r& (p{\rightarrow}q){\land}(q{\rightarrow}r)& p{\rightarrow}r & [(p{\rightarrow}q){\land}(q{\rightarrow}r)]{\rightarrow}(p{\rightarrow}r)\\
+\hline
+T & T & T & T & T & T & T & T\\
+T & T & F & T & F & F & F & T\\
+T & F & T & F & T & F & T & T\\
+T & F & F & F & T & F & F & T\\
+F & T & T & T & T & T & T & T\\
+F & T & F & T & F & F & T & T\\
+F & F & T & T & T & T & T & T\\
+F & F & F & T & T & T & T & T\\
+\end{array}
+\end{displaymath}
+Since the final (highlighted) column of the truth table contains all \(T\) values, the original statement is a tautology.
+\end{homeworkProblem}
+\begin{homeworkProblem}
+Show that \((p{\land}q){\rightarrow}r\) and \((p{\rightarrow}r){\land}(q{\rightarrow}r)\) are not logically equivalent.
+\subsection{\textbf{Solution}}
+\begin{displaymath}
+\begin{array}{|c c c|c|g|c|c|g|}
+p & q & r & p{\land}q & (p{\land}q){\rightarrow}r& p{\rightarrow}r & q{\rightarrow}r & (p{\rightarrow}r){\land}(q{\rightarrow}r)\\
+\hline
+T & T & T & T & T & T & T & T\\
+T & T & F & T & F & F & F & F\\
+T & F & T & F & T & T & T & T\\
+T & F & F & F & T & F & T & F\\
+F & T & T & F & T & T & T & T\\
+F & T & F & F & T & T & F & F\\
+F & F & T & F & T & T & T & T\\
+F & F & F & F & T & T & T & T\\
+\end{array}
+\end{displaymath}
+Since not all corresponding elements between the (highlighted) columns \((p{\land}q){\rightarrow}r\) and \((p{\rightarrow}r){\land}(q{\rightarrow}r)\) are the same, \((p{\land}q){\rightarrow}r{\not}{\equiv}((p{\rightarrow}r){\land}(q{\rightarrow}r)\).
+\end{homeworkProblem}
+\begin{homeworkProblem}
+Use logical equivalences to verify \({\neg}(({\neg}p{\land}q){\lor}({\neg}p{\land}{\neg}q)){\lor}(p{\land}q){\equiv}p\). Supply a reason for each step.
+\subsection{\textbf{Solution}}
+\begin{align*}
+	{\neg}(({\neg}p{\land}q){\lor}({\neg}p{\land}{\neg}q)){\lor}(p{\land}q)
+	&{\equiv}({\neg}({\neg}p{\land}q){\land}{\neg}({\neg}p{\land}{\neg}q)){\lor}(p{\land}q) && \text{(De Morgan's Law)}\\
+	&{\equiv} (({\neg}({\neg}p){\lor}{\neg}q){\land}({\neg}({\neg}p){\lor}{\neg}({\neg}q)){\lor}(p{\land}q) && \text{(De Morgan's Law)}\\
+	&{\equiv}((p{\lor}{\neg}q){\land}(p{\lor}q)){\lor}(p{\land}q) && \text{(Double Negation Law)}\\
+	&{\equiv}(((p{\lor}{\neg}q){\land}p){\lor}((p{\lor}{\neg}q){\land}q)){\lor}(p{\land}q) && \text{(Distributive Law)}\\
+	&{\equiv}((p{\land}(p{\lor}{\neg}q)){\lor}(q{\land}(p{\lor}{\neg}q))){\lor}(p{\land}q) && \text{(Commutative Law)}\\
+	&{\equiv}(((p{\land}(p{\lor}{\neg}q)){\lor}((q{\land}p){\lor}(q{\land}{\neg}q))){\lor}(p{\land}q)&&\text{(Distributive Law)}\\
+	&{\equiv}(((p{\land}(p{\lor}{\neg}q)){\lor}((q{\land}p){\lor}{\textbf{F}}))){\lor}(p{\land}q)&&\text{(Negation Law)}\\
+	&{\equiv}(((p{\land}(p{\lor}{\neg}q)){\lor}(q{\land}p)){\lor}(p{\land}q)&&\text{(Identity Law)}\\
+	&{\equiv}(p{\lor}(q{\land}p)){\lor}(p{\land}q)&&\text{(Absorption Law)}\\
+	&{\equiv}(p{\lor}(p{\land}q)){\lor}(p{\land}q)&&\text{(Commutative Law)}\\
+	&{\equiv}p{\lor}(p{\land}q)&&\text{(Absorption Law)}\\
+	&{\equiv}p&&\text{(Absorption Law)}\\
+\end{align*}
+{\indent}\({\therefore}{\neg}(({\neg}p{\land}q){\lor}({\neg}p{\land}{\neg}q)){\lor}(p{\land}q){\equiv}p\)
+\end{homeworkProblem}
+\begin{homeworkProblem}
+Determine whether each of these compound propositions is satisfiable. If the compound proposition is satisfiable, provide an assignment of truth values to the variables that makes the proposition true.
+\begin{enumerate}[nosep, label=\textbf{\alph*})]
+\item \((p{\lor}{\neg}q){\land}({\neg}p{\lor}q){\land}({\neg}p{\lor}{\neg}q)\)
+\item \((p{\rightarrow}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q){\land}({\neg}p{\rightarrow}{\neg}q)\)
+\item \((p{\iff}q){\land}({\neg}p{\iff}q)\)
+\end{enumerate}
+\subsection{\textbf{Solution}}
+\begin{enumerate}[nosep, label=\textbf{\alph*})]
+\item The compound proposition is satisfiable when \(p\) and \(q\) are both false.
+\item Unsatisfiable
+\item Unsatisfiable
+\end{enumerate}
+
+\textbf{Part A}\\
+The Truth Table For \((p{\lor}{\neg}q){\land}({\neg}p{\lor}q){\land}({\neg}p{\lor}{\neg}q)\) is the following:
+\begin{displaymath}
+\begin{array}{|c c|c|c|c|c|c|g|}
+p & q & {\neg}p & {\neg}q & p{\lor}{\neg}q & {\neg}p{\lor}q & {\neg}p{\lor}{\neg}q &(p{\lor}{\neg}q){\land}({\neg}p{\lor}q){\land}({\neg}p{\lor}{\neg}q)\\
+\hline
+T & T & F & F & T & T & F & F\\
+T & F & F & T & T & F & T & F\\
+F & T & T & F & F & T & T & F\\
+F & F & T & T & T & T & T & T\\
+\end{array}
+\end{displaymath}
+Since the last (highlighted) column has a true value in the row where both \(p\) and \(q\) are false, the proposition is satisfied with those values.\\
+\textbf{Part B}\\
+The Truth Table For \((p{\rightarrow}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q){\land}({\neg}p{\rightarrow}{\neg}q)\) is the following:
+\begin{displaymath}
+\begin{array}{|c c|c|c|c|c|c|c|g|}
+p & q & {\neg}p & {\neg}q & p{\rightarrow}q& p{\rightarrow}{\neg}q & {\neg}p{\rightarrow}q & {\neg}p{\rightarrow}{\neg}q &(p{\rightarrow}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q){\land}({\neg}p{\rightarrow}{\neg}q)\\
+\hline
+T & T & F & F & T & F & T & T & F\\
+T & F & F & T & F & T & T & T & F\\
+F & T & T & F & T & T & T & F & F\\
+F & F & T & T & T & T & F & T & F\\
+\end{array}
+\end{displaymath}
+Since the table is false for all values in the last (highlighted) column, \((p{\rightarrow}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q){\land}({\neg}p{\rightarrow}{\neg}q)\) is unsatisfiable.
+
+\begin{displaymath}
+\begin{array}{|c c|c|c|c|g|}
+p & q & {\neg}p & p {\iff} q & {\neg} p {\iff} q & (p{\iff}q){\land}({\neg}p{\iff}q)\\
+\hline
+T & T & F & T & F & F\\
+T & F & F & F & T & F\\
+F & T & T & F & T & F\\
+F & F & T & T & F & F\\
+\end{array}
+\end{displaymath}
+Since the table is false for all values in the last (highlighted) column, \((p{\iff}q){\land}({\neg}p{\iff}q)\) is unsatisfiable.
 \end{homeworkProblem}
 \end{document}
