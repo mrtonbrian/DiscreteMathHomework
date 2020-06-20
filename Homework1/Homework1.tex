@@ -177,7 +177,7 @@ Write these statements using \(p\), \(q\), \(r\) and logical connectives (includ
 \end{enumerate}
 \subsection{\textbf{Solution}}
 \begin{enumerate}[nosep, label=\textbf{\alph*})]
-\item \(p{\land}{\neg}q\)
+\item \(r{\land}{\neg}q\)
 \item \(p{\land}q{\land}r\)
 \item \(r{\rightarrow}p\)
 \item \(p{\land}{\neg}q{\land}r\) (Note that the statement can be rewritten as ``You get an A on the final, do not do every exercise \textit{and} you get an A in this class'', as in this case, the word \textit{and} can replace \textit{nevertheless} without changing the meaning)
@@ -375,21 +375,8 @@ F & F & T & T & T & T & F & T & F\\
 \end{array}
 \end{displaymath}
 Since the table is false for all values in the last (highlighted) column, \((p{\rightarrow}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q){\land}({\neg}p{\rightarrow}{\neg}q)\) is unsatisfiable.\\
-I also want to show a ``slick'' way to do this (as opposed to the method shown in class):\\
-\begin{align*}
-(p{\rightarrow}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q){\land}({\neg}p{\rightarrow}{\neg}q)
-&{\equiv}(p{\rightarrow}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q){\land}(q{\rightarrow}p)
-&& {\text {(${\neg}p{\rightarrow}{\neg}q{\equiv}q{\rightarrow}p$ By Contrapositive)}}\\
-&{\equiv}(p{\rightarrow}q){\land}(q{\rightarrow}p){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q)
-&& {\text {(Commutative Property)}}\\
-&{\equiv}(p{\rightarrow}q){\land}(q{\rightarrow}p){\land}(p{\rightarrow}{\neg}q){\land}({\neg}q{\rightarrow}p)
-&& {\text {(${\neg}p{\rightarrow}q{\equiv}{\neg}q{\rightarrow}p$ By Contrapositive)}}\\
-&{\equiv}(p{\iff}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}q{\rightarrow}p)
-&& {\text {(Page 29, Table 8)}}\\
-&{\equiv}(p{\iff}q){\land}(p{\iff}{\neg}q)
-&& {\text {(Page 29, Table 8)}}
-\end{align*}
-The last statement is a contradiction, as for the statement \(a{\iff}b\) to be true, then \(a\) and \(b\) must have the same value. However, for the last statement to be true, \(p\) must have the same value as both \(q\) and \({\neg}q\) which cannot be true , and thus the proposition is unsatisfiable.\\
+% insert first part here
+\\
 \textbf{Part C}\\
 \begin{displaymath}
 \begin{array}{|c c|c|c|c|g|}
@@ -401,6 +388,6 @@ F & T & T & F & T & F\\
 F & F & T & T & F & F\\
 \end{array}
 \end{displaymath}
-Since the table is false for all values in the last (highlighted) column, \((p{\iff}q){\land}({\neg}p{\iff}q)\) is unsatisfiable. This can also be justified using the reasoning found in Part B, where \((p{\iff}q){\land}(p{\iff}{\neg}q)\) means that \(p\) must have the same value as both \(q\) and \({\neg}q\) which cannot be true , and thus the proposition is unsatisfiable.
+Since the table is false for all values in the last (highlighted) column, \((p{\iff}q){\land}({\neg}p{\iff}q)\) is unsatisfiable.
 \end{homeworkProblem}
 \end{document}
