@@ -152,5 +152,26 @@ Examples:
 Translate the statement into English, where the domain for each variable consists of all real numbers.
 $\forall x \forall y(((x \geq 0) \land (y \geq 0)) \rightarrow (xy \geq 0))$
 \subsection{Solution}
+For all real numbers x and y, if x is greater than equal to 0 and y is greater than equal to 0, then x times y is greater than or equal to 0.
+\end{homeworkProblem}
+\begin{homeworkProblem}
+Let $I(x)$ be the statement ``x has an internet connection.'' Write the below statement using quantifiers.
+Everyone except one student in your class has an internet connection.
+\subsection{Solution}
+\(
+\exists x(\neg I(x) \land \forall y (x \neq y \rightarrow I(y))
+\)\\
+This can be thought of as ``there exists a student x such that x does not have an internet connection and every other student except them has one.''
+\end{homeworkProblem}
+\begin{homeworkProblem}
+Rewrite the statement.\\
+$\neg \exists y(\exists xR(x,y) \lor \forall xS(x,y)$\\
+\subsection{Solution}
+\begin{align*}
+\neg \exists y(\exists xR(x,y) \lor \forall xS(x,y))
+&{\equiv} \forall y \neg(\exists xR(x,y) \lor \forall xS(x,y) && \text{(De Morgan's Law of Quantifiers)}\\
+&{\equiv} \forall y (\neg \exists xR(x,y) \land \neg \forall xS(x,y) && \text{(De Morgan's Law)}\\
+&{\equiv} \forall y (\forall x \neg R(x,y) \land \exists x \neg S(x,y)) && \text{(De Morgan's Law of Quantifiers)}
+\end{align*}
 \end{homeworkProblem}
 \end{document}
