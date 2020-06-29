@@ -158,7 +158,7 @@ F & F & F & F & T & F & T\\
 \end{array}
 \end{displaymath}
 In the above, since column \((p{\land}{\neg}q){\rightarrow}r\) and \(p{\rightarrow}(q{\lor}r)\) (both highlighted) have matching corresponding elements, \((p{\land}{\neg}q){\rightarrow}r{\:}{\equiv}{\:}p{\rightarrow}(q{\lor}r)\). Without building the truth table, this can still be justified.\\
-Note that \(p{\land}{\neg}q\) can only be true when \(p\) is true and \(q\) is false, which means that the statement \((p{\land}{\neg}q){\rightarrow}r\) can only be false when \(p\) is true, \(q\) is false, and \(r\) is false (which gives the implication \(T{\rightarrow}F\) which is logically equivalent to \(F\)). Using similar reasoning, since \(a{\rightarrow}b\) is only false when \(a\) is true and \(b\) is false, \(p{\rightarrow}(q{\land}r)\) is false when p is true and \(q{\land}r)\) is false, which is only true where \(q\) and \(r\) are both false. Thus, since they are both only false where \(p\) is true and both \(q\) and \(r\) are false and true otherwise, the two statements must be logically equivalent.
+Note that \(p{\land}{\neg}q\) can only be true when \(p\) is true and \(q\) is false, which means that the statement \((p{\land}{\neg}q){\rightarrow}r\) can only be false when \(p\) is true, \(q\) is false, and \(r\) is false (which gives the implication \(T{\rightarrow}F\) which is logically equivalent to \(F\)). Using similar reasoning, since \(a{\rightarrow}b\) is only false when \(a\) is true and \(b\) is false, \(p{\rightarrow}(q{\land}r)\) is false when p is true and \((q{\land}r)\) is false, which is only true where \(q\) and \(r\) are both false. Thus, since they are both only false where \(p\) is true and both \(q\) and \(r\) are false and true otherwise, the two statements must be logically equivalent.
 \end{homeworkProblem}
 \pagebreak
 \begin{homeworkProblem}
@@ -213,12 +213,12 @@ Construct a combinatorial circuit using inverters, OR gates, and AND gates that 
 \end{figure}
 \end{homeworkProblem}
 \begin{homeworkProblem}
-A says “The two of us are both knights” and B says “A is
-a knave.”
+A says ``The two of us are both knights'' and B says ``A is
+a knave.''
 \subsection{\textbf{Solution}}
 \emph{\textbf{A is a Knave\\ B is a Knight}}\\~\\
 Assume A is a knight. As a result, B must also be a knight. However, if B is a knight as well, A cannot be a knight, as then B would be lying.\\
-A must then be a knave. As a result, B must be a knight, as he is telling the truth in this instance. Note that when A is a knave and B is a knight, both satisfy the requirements of the problem, as A is not telling the truth (as both of them are not knights) and B is telling the truth (as A is a knave).
+A must then be a knave. As a result, B must be a knight, as he is telling the truth in this instance. Note that when A is a knave and B is a knight, both of them satisfy the requirements of the problem, as A is not telling the truth (as both of them are not knights) and B is telling the truth (as A is a knave).
 \end{homeworkProblem}
 \begin{homeworkProblem}
 Are these system specifications consistent? “Whenever the system software is being upgraded, users cannot access the file system. If users can access the file system, then they can save new files. If users cannot save new files, then the system software is not being upgraded.”
@@ -268,12 +268,12 @@ For each of these compound propositions use the conditional-disjunction equivale
 \end{enumerate}
 \subsection{\textbf{Solution}}
 \begin{enumerate}[nosep, label=\textbf{\alph*})]
-\item \({\neg}({\neg}p){\lor}{\neg}q{\equiv}\)
+\item \({\neg}p{\rightarrow}{\neg}q{\equiv}{\neg}({\neg}p){\lor}{\neg}q{\equiv}\)
 \framebox[1.25\width]{\(p{\lor}{\neg}q\)}
-\item \({\neg}(p{\lor}q){\lor}{\neg}p{\equiv}({\neg}p{\land}{\neg}q){\lor}{\neg}p{\equiv}\)
+\item \((p{\lor}q){\rightarrow}{\neg}p{\equiv}{\neg}(p{\lor}q){\lor}{\neg}p{\equiv}({\neg}p{\land}{\neg}q){\lor}{\neg}p{\equiv}\)
 \framebox[1.25\width]{\({\neg}p\)}
-\item \(({\neg}p{\lor}{\neg}q){\rightarrow}(p{\lor}q){\equiv}{\neg}({\neg}p{\lor}{\neg}q){\lor}(p{\lor}q){\equiv}\)
-\framebox[1.1\width]{\((p{\land}q){\lor}(p{\lor}q)\)}
+\item \((p{\rightarrow}{\neg}q){\rightarrow}({\neg}p{\rightarrow}q){\equiv}({\neg}p{\lor}{\neg}q){\rightarrow}(p{\lor}q){\equiv}{\neg}({\neg}p{\lor}{\neg}q){\lor}(p{\lor}q){\equiv}(p{\land}q){\lor}(p{\lor}q){\equiv}((p{\land}q){\lor}p){\lor}q{\equiv}\)
+\framebox[1.1\width]{\((p{\lor}q)\)}
 \end{enumerate}
 \end{homeworkProblem}
 \begin{homeworkProblem}
@@ -323,15 +323,10 @@ Use logical equivalences to verify \({\neg}(({\neg}p{\land}q){\lor}({\neg}p{\lan
 	&{\equiv}({\neg}({\neg}p{\land}q){\land}{\neg}({\neg}p{\land}{\neg}q)){\lor}(p{\land}q) && \text{(De Morgan's Law)}\\
 	&{\equiv} (({\neg}({\neg}p){\lor}{\neg}q){\land}({\neg}({\neg}p){\lor}{\neg}({\neg}q)){\lor}(p{\land}q) && \text{(De Morgan's Law)}\\
 	&{\equiv}((p{\lor}{\neg}q){\land}(p{\lor}q)){\lor}(p{\land}q) && \text{(Double Negation Law)}\\
-	&{\equiv}(((p{\lor}{\neg}q){\land}p){\lor}((p{\lor}{\neg}q){\land}q)){\lor}(p{\land}q) && \text{(Distributive Law)}\\
-	&{\equiv}((p{\land}(p{\lor}{\neg}q)){\lor}(q{\land}(p{\lor}{\neg}q))){\lor}(p{\land}q) && \text{(Commutative Law)}\\
-	&{\equiv}(((p{\land}(p{\lor}{\neg}q)){\lor}((q{\land}p){\lor}(q{\land}{\neg}q))){\lor}(p{\land}q)&&\text{(Distributive Law)}\\
-	&{\equiv}(((p{\land}(p{\lor}{\neg}q)){\lor}((q{\land}p){\lor}{\textbf{F}}))){\lor}(p{\land}q)&&\text{(Negation Law)}\\
-	&{\equiv}(((p{\land}(p{\lor}{\neg}q)){\lor}(q{\land}p)){\lor}(p{\land}q)&&\text{(Identity Law)}\\
-	&{\equiv}(p{\lor}(q{\land}p)){\lor}(p{\land}q)&&\text{(Absorption Law)}\\
-	&{\equiv}(p{\lor}(p{\land}q)){\lor}(p{\land}q)&&\text{(Commutative Law)}\\
-	&{\equiv}p{\lor}(p{\land}q)&&\text{(Absorption Law)}\\
-	&{\equiv}p&&\text{(Absorption Law)}\\
+	&{\equiv}((p{\lor}(q{\land}{\neg}q)){\lor}(p{\land}q) && \text{(Distributive Law)}\\
+	&{\equiv}(p{\lor}\textbf{F}){\lor}(p{\land}q) && \text{(Negation Law)} \\
+	&{\equiv}p{\lor}(p{\land}q) && \text{(Identity Law)} \\
+	&{\equiv}p && \text{(Absorption Law)} \\
 \end{align*}
 {\indent}\({\therefore}{\neg}(({\neg}p{\land}q){\lor}({\neg}p{\land}{\neg}q)){\lor}(p{\land}q){\equiv}p\)
 \end{homeworkProblem}
@@ -348,7 +343,7 @@ Determine whether each of these compound propositions is satisfiable. If the com
 \item Unsatisfiable
 \item Unsatisfiable
 \end{enumerate}
-
+\noindent
 \textbf{Part A}\\
 The Truth Table For \((p{\lor}{\neg}q){\land}({\neg}p{\lor}q){\land}({\neg}p{\lor}{\neg}q)\) is the following:
 \begin{displaymath}
@@ -375,7 +370,21 @@ F & F & T & T & T & T & F & T & F\\
 \end{array}
 \end{displaymath}
 Since the table is false for all values in the last (highlighted) column, \((p{\rightarrow}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q){\land}({\neg}p{\rightarrow}{\neg}q)\) is unsatisfiable.\\
-% insert first part here
+I also want to show a ``slick'' way to do this (as opposed to the method shown in class):\\
+\begin{align*}
+(p{\rightarrow}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q){\land}({\neg}p{\rightarrow}{\neg}q)
+&{\equiv}(p{\rightarrow}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q){\land}(q{\rightarrow}p)
+&& {\text {(${\neg}p{\rightarrow}{\neg}q{\equiv}q{\rightarrow}p$ By Contrapositive)}}\\
+&{\equiv}(p{\rightarrow}q){\land}(q{\rightarrow}p){\land}(p{\rightarrow}{\neg}q){\land}({\neg}p{\rightarrow}q)
+&& {\text {(Commutative Property)}}\\
+&{\equiv}(p{\rightarrow}q){\land}(q{\rightarrow}p){\land}(p{\rightarrow}{\neg}q){\land}({\neg}q{\rightarrow}p)
+&& {\text {(${\neg}p{\rightarrow}q{\equiv}{\neg}q{\rightarrow}p$ By Contrapositive)}}\\
+&{\equiv}(p{\iff}q){\land}(p{\rightarrow}{\neg}q){\land}({\neg}q{\rightarrow}p)
+&& {\text {(Page 29, Table 8)}}\\
+&{\equiv}(p{\iff}q){\land}(p{\iff}{\neg}q)
+&& {\text {(Page 29, Table 8)}}
+\end{align*}
+The last statement is a contradiction, as for the statement \(a{\iff}b\) to be true, then \(a\) and \(b\) must have the same value. However, for the last statement to be true, \(p\) must have the same value as both \(q\) and \({\neg}q\) which cannot be true, and thus the proposition is unsatisfiable.
 \\
 \textbf{Part C}\\
 \begin{displaymath}
@@ -388,6 +397,6 @@ F & T & T & F & T & F\\
 F & F & T & T & F & F\\
 \end{array}
 \end{displaymath}
-Since the table is false for all values in the last (highlighted) column, \((p{\iff}q){\land}({\neg}p{\iff}q)\) is unsatisfiable.
+Since the table is false for all values in the last (highlighted) column, \((p{\iff}q){\land}({\neg}p{\iff}q)\) is unsatisfiable. This can also be justified using the reasoning found in Part B, where \((p{\iff}q){\land}(p{\iff}{\neg}q)\) means that \(p\) must have the same value as both \(q\) and \({\neg}q\) which cannot be true, and thus the proposition is unsatisfiable.
 \end{homeworkProblem}
 \end{document}
