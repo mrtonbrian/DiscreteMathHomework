@@ -10,7 +10,7 @@
 \usepackage{tikz}
 \usepackage{graphicx}
 \usepackage{enumitem}
-
+\usepackage{multicol}
 
 \topmargin=-0.45in
 \evensidemargin=0in
@@ -173,5 +173,30 @@ $\neg \exists y(\exists xR(x,y) \lor \forall xS(x,y)$\\
 &{\equiv} \forall y (\neg \exists xR(x,y) \land \neg \forall xS(x,y) && \text{(De Morgan's Law)}\\
 &{\equiv} \forall y (\forall x \neg R(x,y) \land \exists x \neg S(x,y)) && \text{(De Morgan's Law of Quantifiers)}
 \end{align*}
+\end{homeworkProblem}
+\setcounter{homeworkProblemCounter}{1}
+\section{Section 1.6 Quick Review}
+Nothing much here, you just need to know the rules of inference from pages 76, 80.\\
+Also, there are a couple of fallacies you must know, especially \textbf{inverse} and \textbf{converse} error.\\
+An example of each is given below.\\
+Converse Error:\\
+\(
+p \rightarrow q\\
+q\\
+\therefore p
+\)\\~\\
+Inverse Error:\\
+\(
+p \rightarrow q\\
+\neg q\\
+\therefore \neg p
+\)
+\begin{homeworkProblem}
+Use the rules of inference to show that if $\forall x (P(x) \rightarrow (Q(x) \land S(x))$ and $\forall x(P(x) \land R(x))$ are true, then $\forall x(R(x) \land S(x))$ is true.
+\subsection{Solution}
+(I couldn't find a way to type this up, so I scanned my writing)
+\begin{figure}[h!]
+	\includegraphics[scale=.15]{images/Prob1-6_1.jpg}
+\end{figure}
 \end{homeworkProblem}
 \end{document}
