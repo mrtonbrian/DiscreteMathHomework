@@ -1,0 +1,129 @@
+% Boilerplate from: https://github.com/jdavis/latex-homework-template/blob/master/homework.tex
+\documentclass[table]{article}
+\usepackage[table]{xcolor}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{enumitem}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkTitle}
+\rhead{}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+%\setlength\parindent{15pt}%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+\newcommand{\hmwkTitle}{Homework\ \#2}
+\newcommand{\hmwkDueDate}{30 June 2020}
+\newcommand{\hmwkClass}{Discrete Structures}
+\newcommand{\hmwkClassTime}{Section 201}
+\newcommand{\hmwkClassInstructor}{Professor Jensen}
+\newcommand{\hmwkAuthorName}{\textbf{Brian Ton}}
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+    \vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\newcommand{\solution}{\textbf{\large Solution}}
+
+\newcolumntype{g}{>{\columncolor{yellow!20}}c}
+
+\begin{document}
+\maketitle
+
+\pagebreak
+\section{Problem 1}
+Is the statement ``$\forall$ real numbers $x$ and $y$, $\sqrt{x + y} = \sqrt{x} + \sqrt{y}$'' \textit{True} or \textit{False}? If it is false, provide a counterexample.
+\subsection{Solution}
+\textbf{False}\\
+Consider the case $x=4$, $y=5$. In this case, $\sqrt{x + y} = \sqrt{4 + 5} = \sqrt{9} = 3$. However, $\sqrt{4} + \sqrt{5} = 2 + \sqrt{5} \neq 3$.
+\section{Problem 2}
+Is the statement ``$\exists$ real numbers $x$ and $y$ such that $\sqrt{x + y} = \sqrt{x} + \sqrt{y}$'' \textit{True} or \textit{False}? If it is true, provide an example.
+\subsection{Solution}
+\textbf{True}\\
+Consider the case $x=1$, $y=0$. In this case, $\sqrt{x + y} = \sqrt{1 + 0} = \sqrt{1} = 1$ and $\sqrt{1} + \sqrt{0} = \sqrt{1} = 1$. More generally, this is true when at least one of $x$ or $y$ is 0 (which follows from the identity element axiom of addition for real numbers, as $\sqrt{0} = 0$ and $\sqrt{x + 0} = \sqrt{x}$, meaning that $\sqrt{x + 0} = \sqrt{x} + \sqrt{0}$).
+\section{Problem 3}
+Write a negation for each statement.
+\begin{enumerate}[nosep, label=\alph*)]
+\item There exists a real number $x$ such that $x \leq -2$
+\item $\forall$ computer programs $P$, if $P$ compiles without error messages, then P is correct.
+\item $\forall$ integers $n$, $\exists$ a prime number $p$ such that $n < p < 2n$.
+\end{enumerate}
+\subsection{Solution}
+\begin{enumerate}[nosep, label=\alph*)]
+\item For all real numbers $x$, $x > -2$
+\item There exists a computer program $P$ such that $P$ compiles without error messages and P is not correct.
+\item There exists an integer $n$ such that for all prime numbers $p$, $(p \leq x) \lor (p \geq 2x)$
+\end{enumerate}
+\subsubsection{Part A}
+Let $P(x)$ be the statement $x \leq -2$.\\
+The statement can then be written as $\exists xP(x)$. By De Morgan's Law of Quantifiers, $\neg \exists xP(x) \equiv \forall x \neg P(x)$. Additionally, note that $\neg(x \leq -2) \equiv (x > -2)$. Thus, the negation of the original statement is $\forall x(x > -2)$, which in English is ``For all real numbers $x$, $x > -2$''.
+\subsubsection{Part B}
+Let $E(x)$ be the statement ``$x$ compiles without error messages.'' and $C(x)$ be the statement ``$x$ is correct.''\\
+The original statement can then be written as $\forall P(E(P) \rightarrow C(P))$. By De Morgan's Law of Quantifiers, $\neg \forall P(E(P) \rightarrow C(P)) \equiv \exists P \neg (E(P) \rightarrow C(P))$. By conditional disjunction, $\exists P \neg (E(P) \rightarrow C(P)) \equiv \exists P \neg (\neg E(P) \lor C(P))$, and by De Morgan's law of propositional logic, $\exists P \neg (\neg E(P) \lor C(P)) \equiv\exists P (E(P) \land \neg C(P))$, which in English would be ``There exists a computer program $P$ such that $P$ compiles without error messages and P is not correct.''
+\subsubsection{Part C}
+Let $P(x, p)$ be the statement $x < p < 2x$. The original statement can then be written as $\forall n \exists p(P(n, p))$. Note that $\neg(x < p < 2x) \equiv (p \leq x) \lor (p \geq 2x)$. By De Morgan's Law of Quantifiers,$\neg \forall n \exists p(P(n, p)) \equiv \exists n \neg \exists p(P(n, p)) \equiv \exists n \forall p(\neg P(n, p))$. Then, taking note of the negation of $P(x)$, $\exists n \forall p(\neg P(n, p)) \equiv \exists n \forall p((p \leq x) \lor (p \geq 2x))$. Written in English, the statement would be ``There exists an integer $n$ such that for all prime numbers $p$, $(p \leq x) \lor (p \geq 2x)$.''
+\section{Problem 4}
+Show that $\exists xP(x) \land \exists xQ(x)$ and $\exists (P(x) \land Q(x))$ are not logically equivalent.
+\subsection{Solution}
+Let $P(x)$ be the statement $x < 1$ and $Q(x)$ be the statement $x > 1$, where $x \in \mathbb{Z}$.\\
+The first statement is then $\exists x(x < 1) \land \exists x(x > 1)$. This is a true statement, as there does exist an integer x that is less than 1 (e.g. 0) and an x that is greater than 1 (e.g. 2). However, the second statement is false, as there exists no integer x that is both greater than and less than 1. $\therefore \exists xP(x) \land \exists xQ(x) \not\equiv \exists (P(x) \land Q(x))$
+\section{Problem 5}
+Show that $\forall xP(x) \lor \forall xQ(x)$ and $\forall x(P(x) \lor Q(x))$ are not logically equivalent.
+\subsection{Solution}
+Let $P(x)$ be the statement $x \geq 1$ and $Q(x)$ be the statement $x < 1$, where $x \in \mathbb{Z}$.\\
+The first statement is false, since $\forall xP(x)$ is false, as not every integer is greater than or equal to 1, and $\forall xQ(x)$ is false, as not every integer is less than 1. However, the second statement is true, as every integer is greater than or equal to or less than 1. $\therefore \forall xP(x) \lor \forall xQ(x) \not\equiv \forall x(P(x) \lor Q(x))$.
+\section{Problem 6}
+Let $P(x,y)$ be the statement ``$xy=1$''. If the domain for both variables is the set of nonzero real numbers, what are the truth values?
+\begin{enumerate}[nosep, label=\alph*)]
+\item $\exists y \forall x P(x,y)$
+\item $\forall x \exists y P(x,y)$
+\end{enumerate}
+\subsection{Solution}
+\begin{enumerate}[nosep, label=\alph*)]
+\item False
+\item True
+\end{enumerate}
+\end{document}
