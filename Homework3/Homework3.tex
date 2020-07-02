@@ -1,0 +1,160 @@
+% Boilerplate from: https://github.com/jdavis/latex-homework-template/blob/master/homework.tex
+\documentclass[table]{article}
+\usepackage[table]{xcolor}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{logicproof}
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkTitle}
+\rhead{}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+%\setlength\parindent{15pt}%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+\newcommand{\hmwkTitle}{Homework\ \#3}
+\newcommand{\hmwkDueDate}{3 July 2020}
+\newcommand{\hmwkClass}{Discrete Structures}
+\newcommand{\hmwkClassTime}{Section 201}
+\newcommand{\hmwkClassInstructor}{Professor Jensen}
+\newcommand{\hmwkAuthorName}{\textbf{Brian Ton}}
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+    \vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\newcommand{\solution}{\textbf{\large Solution}}
+
+\newcolumntype{g}{>{\columncolor{yellow!20}}c}
+
+\begin{document}
+\maketitle
+\pagebreak
+\section{Problem 1}
+What can be concluded from the premises? What rule of inference did you apply?
+\begin{enumerate}[nosep, label=\alph*)]
+\item If this is a while loop, then the body of the loop may never be executed.\\This is a while loop.
+\item If they were unsure of the address, then they would have telephoned.\\They did not telephone.
+\end{enumerate}
+\subsection{Solution}
+\begin{enumerate}[nosep,label=\alph*)]
+\item The body of the loop may never be executed (by modus ponens)
+\item They were not unsure of the address (by modus tollens)
+\end{enumerate}
+\section{Problem 2}
+Use symbols to write the logical form of the argument, and then use a truth table to test the
+argument for validity. Justify your conclusion in a sentence.\\~\\
+Oliver is a dachshund or Oliver is a chinchilla.\\
+If Oliver is a dachshund, then Oliver is required to take dog obedience training.\\
+$\therefore$Oliver is a chinchilla or Oliver is not required to take dog obedience training.
+\subsection{Solution}
+Let $p$ be the statement Oliver is a dachsund.\\
+Let $q$ be the statement Oliver is a chincilla.\\
+Let $r$ be the statement Oliver is required to take dog obedience training.\\
+The premises can then be written as $p \lor q$ and $p \rightarrow r$. The conclusion can be written as $q \lor \neg r$
+\begin{displaymath}
+\begin{array}{|c c c|c|c|c|}
+p & q & r & p \lor q & p \rightarrow r & q \lor \neg r\\
+\hline
+T & T & T & T & T & T\\
+T & T & F & T & F & T\\
+T & F & T & T & T & F\\
+T & F & F & T & F & T\\
+F & T & T & T & T & T\\
+F & T & F & T & T & T\\
+F & F & T & F & T & F\\
+F & F & F & F & T & T\\
+\end{array}
+\end{displaymath}
+Since there exists a row in which both the premises are true and the conclusion is false (i.e row 3), the argument is not valid.
+\section{Problem 3}
+Use the rules fo inference to deduce the conclusion from the premises, giving a reason for each step.
+\begin{gather*}
+\neg p \lor q \rightarrow r\\
+s \lor \neg q\\
+\neg t\\
+p \rightarrow t\\
+\neg p \land r \rightarrow \neg s\\
+\therefore \neg q
+\end{gather*}\\
+Note that by operator precedence, one should rewrite the premises as the below to remove any confusion.
+\begin{gather*}
+(\neg p \lor q) \rightarrow r\\
+s \lor \neg q\\
+\neg t\\
+p \rightarrow t\\
+(\neg p \land r) \rightarrow \neg s\\
+\therefore \neg q
+\end{gather*}
+\subsection{Solution}
+\begin{logicproof}{2}
+(\neg p \lor q) \rightarrow r & Premise\\
+s \lor \neg q & Premise\\
+\neg t & Premise\\
+p \rightarrow t & Premise\\
+(\neg p \land r) \rightarrow \neg s & Premise\\
+\neg p & Modus Tollens using $(3)$ and $(4)$\\
+\neg p \lor q & Addition using $(6)$\\
+r & Modus Ponens using $(1)$\\
+\neg p \land r & Conjunction using $(6)$ and $(8)$\\
+\neg s & Modus Ponens using $(5)$ and $(9)$\\
+\neg q & Disjunctive Syllogism using $(2)$ and $(10)$
+\end{logicproof}
+
+\section{Problem 4}
+Are the following arguments valid or invalid? If the argument is valid, state whether Universal Modus Ponens, Universal Modus Tollens, or Universal Transitivity applies. If the argument is invalid, state whether the converse or the inverse error is made.\\
+\begin{enumerate}[nosep, label=\alph*)]
+\item All math majors will take Linear Algebra.\\Becky took Linear Algebra.\\Therefore, Becky is a math major.
+\item All math majors will take Linear Algebra.\\George is not a math major.\\Therefore, George will not take Linear Algebra.
+\item All polynomial functions are differentiable.\\All differentiable functions are continuous.\\Function $f(x)$ is not continuous.\\Therefore, $f(x)$ is not a polynomial.
+\end{enumerate}
+\subsection{Solution}
+\begin{enumerate}[nosep, label=\alph*)]
+\item The argument is invalid by converse error.
+\item The argument is invalid by inverse error.
+\item The argument is valid by Universal Modus Tollens.
+\end{enumerate}
+\end{document}
