@@ -11,7 +11,6 @@
 \usepackage{graphicx}
 \usepackage{enumitem}
 
-
 \topmargin=-0.45in
 \evensidemargin=0in
 \oddsidemargin=0in
@@ -126,4 +125,32 @@ Let $P(x,y)$ be the statement ``$xy=1$''. If the domain for both variables is th
 \item False
 \item True
 \end{enumerate}
+\subsubsection{Part A}
+Note that the statement is equivalent to saying that there exists a nonzero real $y$ that is the multiplicative inverse of all nonzero real $x$.\\
+By Theorem 4 in Appendix A1.2 (also proven in the section below, as its proof is not given in the book), the multiplicative inverse of a nonzero real number $x$ is unique (i.e. there is only 1 multiplicative inverse for each nonzero real x). Thus, the only way for the original statement to be true is if all nonzero real $x$ share the same singular multiplicative inverse $y$ (a universal generalization of the fact that $y$, according to the statement, is a multiplicative inverse of an arbitrary nonzero real $x$, and by Theorem 4, the only multiplicative inverse of an arbitrary $x$).
+ However, since $3$ has the (unique) multiplicative inverse of $\frac{1}{3}$ and $2$ has the (unique) multiplicative inverse $\frac{1}{2}$, it cannot be the case that there exists a $y$ that is the multiplicative inverse of all $x$, and thus the statement is false.\\
+\textbf{\textit{Remark 1}}
+\textit{In the above proof, Theorem 4 is needed to cover the case in which both $\frac{1}{x}$ and a constant $y$ where $\frac{1}{x} \neq y$ are multiplicative inverses of an arbitrary $x$, as then it would be the case that $y$ is a shared multiplicative inverse of all $x$ and thus the statement would be true.}\\
+\textbf{\textit{Remark 2}}
+\textit{After going to office hours on Tuesday, I realized that the proof can actually be done easier if done in ``reverse.'' Instead of considering the statement as ``there exists y that is the multiplicative inverse of all x,'' due to the nature of multiplicative inverses, one can actually reverse the statement, considering the statement as ``there exists a $y$ that has every real number $x$ as its multiplicative inverse.'' The result then, trivially follows from Theorem 4, as it says that all multiplicative inverses must be unique.}\\~\\
+\textbf{Theorem 4 (Appendix 1.2)}
+\textit{The multiplicative inverse of a nonzero real number is unique.}
+\begin{proof}
+Let $x$ be a nonzero real number.\\
+Let $a$ and $b$ both be the multiplicative inverse of x.\\
+By the inverse law of multiplication:\\
+$x \cdot a = a \cdot x = 1$\\
+$x \cdot b = b \cdot x = 1$\\
+We can then write:\\
+\begin{align*}
+a &= a \cdot 1 && \text{(Multiplicative Identity Law)}\\
+&= a \cdot (x \cdot b) && {\text{$(x \cdot b = b \cdot x = 1)$}}\\
+&= (a \cdot x) \cdot b && {\text{(Associative Law for Multiplication)}}\\
+&= 1 \cdot b && {\text{$(x \cdot a = a \cdot x = 1)$}}\\
+&= b && {\text{(Multiplicative Identity Law)}}
+\end{align*}
+Since $a=b$, $a$ and $b$ must be the same multiplicative inverse, and thus the multiplicative inverse of a nonzero real number $x$ is unique.
+\end{proof}
+\subsubsection{Part B}
+Note that the statement is equivalent to saying that for every nonzero real $x$, there exists a nonzero real $y$ that is its multiplicative inverse. This follows trivially from the inverse law of multiplication of the field axioms.
 \end{document}
