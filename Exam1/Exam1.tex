@@ -173,6 +173,7 @@ Using logical equivalences as shown below, we can rewrite the negation of the st
 &\equiv (\forall x \in \mathbb{R})(\neg(-2 \leq x) \lor \neg(x < 4)) && \text{(De Morgan's Law of Propositional Logic)}\\
 &\equiv (\forall x \in \mathbb{R})((x < -2) \lor (x \geq 4)) && \text{(Definition of Inequalities)}\\
 \end{align*}
+Note here that the definition of inequalities was used to reason about the idea that if $x$ is not greater than or equal to $-2$, then it must be less than $-2$ and that if $x$ is not less than $4$, then it must be greater than or equal to $4$.\\
 Rewriting it in words, the negation of the initial statment is: ``For all real numbers $x$, $x < -2$ or $x \geq 4$.''
 \section{Problem 9}
 A sequence $a_n$ of real numbers converges if and only if\\
@@ -180,22 +181,25 @@ $\exists a \in \mathbb{R}, \forall \varepsilon > 0, \exists N \in \mathbb{Z},$ s
 Write the negation for this statement. That is, write what it means for the sequence $a_n$ to not converge.
 \subsection{Solution}
 A sequence $a_n$ of real numbers does not converge if and only if\\
-$\forall a \in \mathbb{R}, \exists \varepsilon > 0, \forall N \in \mathbb{Z}, n \geq N$ and $|a_n - a| \geq \varepsilon$.
+$\forall a \in \mathbb{R}, \exists \varepsilon > 0$, such that $\forall N \in \mathbb{Z}, \exists n \in \mathbb{Z}$, such that $n \geq N$ and $|a_n - a| \geq \varepsilon$.
 \subsubsection{Explanation}
 Note that the second part of the original statement can be fully symbolically as\\
-$(\exists a \in \mathbb{R})((\forall \varepsilon > 0)((\exists N \in \mathbb{Z})(((n \geq N) \rightarrow |a_n - a| < \varepsilon))))$.\\
+$\exists a \in \mathbb{R}, \forall \varepsilon > 0, \exists N \in Z, \forall n \in Z, (n \geq N) \rightarrow (|a_n-a| < \varepsilon)$.\\
+Additionally, note that the implicit quantifier $\forall n \in Z$ was added to the definition in order to properly negate the statement.\\
 Using logical equivalences as shown below, we can rewrite the negation of the statement. Note that ``DMQ'' denotes De Morgan's Law of Quantifiers.
 \small
 \begin{align*}
-\neg (\exists a \in \mathbb{R})((\forall \varepsilon > 0)((\exists N \in \mathbb{Z})(((n \geq N) \rightarrow |a_n - a| < \varepsilon))))
-&\equiv (\forall a \in \mathbb{R})\neg((\forall \varepsilon > 0)\\&((\exists N \in \mathbb{Z})(((n \geq N) \rightarrow |a_n - a| < \varepsilon)))) && \text{(DMQ)}\\
-&\equiv (\forall a \in \mathbb{R})((\exists \varepsilon > 0)\\&\neg((\exists N \in \mathbb{Z})(((n \geq N) \rightarrow |a_n - a| < \varepsilon)))) && \text{(DMQ)}\\
-&\equiv (\forall a \in \mathbb{R})((\exists \varepsilon > 0)\\&((\forall N \in \mathbb{Z})\neg(((n \geq N) \rightarrow |a_n - a| < \varepsilon)))) && \text{(DMQ)}\\
-&\equiv (\forall a \in \mathbb{R})((\exists \varepsilon > 0)\\&((\forall N \in \mathbb{Z})(((n \geq N) \land \neg (|a_n - a| < \varepsilon))))) && \text{($\neg (p \rightarrow q) \equiv p \land \neg q$)}\\
-&\equiv (\forall a \in \mathbb{R})((\exists \varepsilon > 0)\\&((\forall N \in \mathbb{Z})(((n \geq N) \land (|a_n - a| \geq \varepsilon))))) && \text{(Definition of Inequalities)}\\
+\neg \exists a \in \mathbb{R}, \forall \varepsilon > 0, \exists N \in Z, \forall n \in Z, (n \geq N) \rightarrow (|a_n-a| < \varepsilon)
+&\equiv \forall a \in \mathbb{R}, \neg \forall \varepsilon > 0, \exists N \in Z, \forall n \in Z,\\&(n \geq N) \rightarrow (|a_n-a| < \varepsilon) && \text{(DMQ)}\\
+&\equiv \forall a \in \mathbb{R}, \exists \varepsilon > 0, \neg \exists N \in Z, \forall n \in Z,\\&(n \geq N) \rightarrow (|a_n-a| < \varepsilon) && \text{(DMQ)}\\
+&\equiv \forall a \in \mathbb{R}, \exists \varepsilon > 0, \forall N \in Z, \neg \forall n \in Z,\\&(n \geq N) \rightarrow (|a_n-a| < \varepsilon) && \text{(DMQ)}\\
+&\equiv \forall a \in \mathbb{R}, \exists \varepsilon > 0, \forall N \in Z, \exists n \in Z,\\&\neg((n \geq N) \rightarrow (|a_n-a| < \varepsilon)) && \text{(DMQ)}\\
+&\equiv \forall a \in \mathbb{R}, \exists \varepsilon > 0, \forall N \in Z, \exists n \in Z,\\&(n \geq N) \land \neg(|a_n-a| < \varepsilon) && \text{($\neg (p \rightarrow q) \equiv p \land \neg q)$)}\\
+&\equiv \forall a \in \mathbb{R}, \exists \varepsilon > 0, \forall N \in Z, \exists n \in Z,\\&(n \geq N) \land (|a_n-a| \geq \varepsilon) && \text{(Definition of Inequality)}\\
 \end{align*}
 \normalsize
-Rewritten to match the style of the original statement, the negation of the second part of the original statement is: $\forall a \in \mathbb{R}, \exists \varepsilon > 0, \forall N \in \mathbb{Z}, n \geq N$ and $|a_n - a| \geq \varepsilon$.
+Note that the definition of inequality was used to reason that if $|a_n-a|$ was not less than $\varepsilon$, then it must be greater than or equal to $\varepsilon$.\\
+Rewritten to match the style of the original statement, the negation of the second part of the original statement is: $\forall a \in \mathbb{R}, \exists \varepsilon > 0$, such that $\forall N \in \mathbb{Z}, \exists n \in \mathbb{Z}$, such that $n \geq N$ and $|a_n - a| \geq \varepsilon$.
 \section{Problem 10}
 Use symbols to write the logical form of the argument, and then use a truth table to test the argument for validity. State whether the argument is valid or invalid. Justify your conclusion in a sentence.
 Oleg is a math major or Oleg is an economics major.\\
@@ -270,6 +274,6 @@ is made.
 \item Valid by Universal Modus Tollens.
 \item Invalid by inverse error.
 \item Valid by Universal Transitivity.
-\item Invalid by converse error and Universal Transitivity (where the incorrect use of converse is that all thoughtful people can tell a valid argument from an invalid one is equivalent to all people able to tell valid arguments are thoughtful, which leads to the incorrect use of Universal Transitivity that states that all discrete structures people are thoughtfull).
+\item Invalid by converse error (where the incorrect use of converse is that all thoughtful people can tell a valid argument from an invalid one is equivalent to all people able to tell valid arguments are thoughtful, which leads to an incorrect use of Universal Transitivity that states that all discrete structures people are thoughtful).
 \end{enumerate}
 \end{document}
