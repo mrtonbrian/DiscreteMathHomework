@@ -79,9 +79,9 @@ will ride her bike.''
 \subsection{Solution}
 Converse: ``If Gabby rides her bike, then it is sunny.''\\
 Inverse: ``If it is not sunny, Gabby will not ride her bike.''\\
-Contrapositive: ``If Gabby does not ride her bike, it is not sunny.''\\~\\
-Let $p$ be the statement ``it is sunny'' and $q$ be the statement ``Gabby will ride her bike.'' Thus, the original statement can be written as $p \rightarrow q$.
+Contrapositive: ``If Gabby does not ride her bike, it is not sunny.''
 \subsubsection{Explanation}
+Let $p$ be the statement ``it is sunny'' and $q$ be the statement ``Gabby will ride her bike.'' Thus, the original statement can be written as $p \rightarrow q$.\\~\\
 The converse of $p \rightarrow q$ is $q \rightarrow p$.\\
 The inverse of $p \rightarrow q$ is $\neg p \rightarrow \neg q$.\\
 The contrapositive of $p \rightarrow q$ is $\neg q \rightarrow \neg p$.\\
@@ -123,9 +123,9 @@ Since the two highlighted columns have the same truth values for all rows, the t
 Verify $\neg (r \lor \neg s) \lor (\neg r \land \neg s) \equiv \neg r$ without using truth tables. Justify each step.
 \subsection{Solution}
 \begin{align*}
-\neg (r \lor \neg s) \lor (\neg r \land s)
-&\equiv (\neg r \land \neg (\neg s)) \lor (\neg r \land s) && \text{(De Morgan's Law)}\\
-&\equiv (\neg r \land s) \lor (\neg r \land s) && \text{(Double Negation Law)}\\
+\neg (r \lor \neg s) \lor (\neg r \land \neg s)
+&\equiv (\neg r \land \neg (\neg s)) \lor (\neg r \land \neg s) && \text{(De Morgan's Law)}\\
+&\equiv (\neg r \land s) \lor (\neg r \land \neg s) && \text{(Double Negation Law)}\\
 &\equiv \neg r \land (s \lor \neg s) && \text{(Distributive Law)}\\
 &\equiv \neg r \land \textbf{T} && \text{(Negation Law)}\\
 &\equiv \neg r && \text{(Identity Law)}
@@ -198,7 +198,7 @@ Using logical equivalences as shown below, we can rewrite the negation of the st
 &\equiv \forall a \in \mathbb{R}, \exists \varepsilon > 0, \forall N \in Z, \exists n \in Z,\\&(n \geq N) \land (|a_n-a| \geq \varepsilon) && \text{(Definition of Inequality)}\\
 \end{align*}
 \normalsize
-Note that the definition of inequality was used to reason that if $|a_n-a|$ was not less than $\varepsilon$, then it must be greater than or equal to $\varepsilon$.\\
+Note that the definition of inequality was used to reason that if $|a_n-a|$ is not less than $\varepsilon$, then it must be greater than or equal to $\varepsilon$.\\
 Rewritten to match the style of the original statement, the negation of the second part of the original statement is: $\forall a \in \mathbb{R}, \exists \varepsilon > 0$, such that $\forall N \in \mathbb{Z}, \exists n \in \mathbb{Z}$, such that $n \geq N$ and $|a_n - a| \geq \varepsilon$.
 \section{Problem 10}
 Use symbols to write the logical form of the argument, and then use a truth table to test the argument for validity. State whether the argument is valid or invalid. Justify your conclusion in a sentence.
