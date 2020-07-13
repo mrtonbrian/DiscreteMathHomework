@@ -2,4 +2,5 @@
 *.log
 *.gz
 *.bak
-
+*.bbl
+*.blg
