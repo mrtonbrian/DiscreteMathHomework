@@ -1,0 +1,157 @@
+% Boilerplate from: https://github.com/jdavis/latex-homework-template/blob/master/homework.tex
+\documentclass[table]{article}
+\usepackage[table]{xcolor}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{logicproof}
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkTitle}
+\rhead{}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setcounter{secnumdepth}{0}
+
+\newcommand{\hmwkTitle}{Homework\ \#5}
+\newcommand{\hmwkDueDate}{17 July 2020}
+\newcommand{\hmwkClass}{Discrete Structures}
+\newcommand{\hmwkClassTime}{Section 201}
+\newcommand{\hmwkClassInstructor}{Professor Jensen}
+\newcommand{\hmwkAuthorName}{\textbf{Brian Ton}}
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+    \vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\newcolumntype{g}{>{\columncolor{yellow!20}}c}
+
+\begin{document}
+\maketitle
+\pagebreak
+\section{Problem 1}
+Let the universal set be the set $\{a, b, c, d, e, f, g\}$ and let $A = \{a, d, f\}$ and $B = \{d, g\}$.
+\begin{enumerate}[nosep, label=\alph*)]
+\item Find $A \cup B$.
+\item Find $A \cap B$.
+\item Find $A - B$.
+\item Find $B - A$.
+\item Find $\overline{A}$. Note that $\overline{A} = U - A$
+\item Find $A \times B$.
+\item Find $\mathcal{P}(B)$.
+\end{enumerate}
+\subsection{Solution}
+\begin{enumerate}[nosep, label=\alph*)]
+\item $A \cup B = \{a, d, f, g\}$
+\item $A \cap B = \{d\}$.
+\item $A - B = \{a, f\}$.
+\item $B - A = \{g\}$.
+\item $\overline{A} = \{b, c, e, g\}$
+\item $A \times B = \{(a, d), (d, d), (f, d), (a, g), (d, g), (f, g)\}$.
+\item $\mathcal{P}(B) = \{\emptyset, \{d\}, \{g\}, \{d, g\}\}$.
+\end{enumerate}
+\section{Problem 2}
+Consider the set $S = \{1, 2, 3, 4, 5, 6\}$. Answer each question \textit{Yes} or \textit{No}.
+\begin{enumerate}[nosep, label=\alph*)]
+\item Is $\{\{1, 4, 5\}, \{2, 3\}, \{2, 6\}\}$ a partition of $S$?
+\item Is $\{\{1, 2, 5\}, \{3\}, \{4, 6\}\}$ a partition of $S$?
+\item Is $\{\{1,4\}, \{2,3\}, \{6\}\}$ a partition of $S$?
+\end{enumerate}
+\subsection{Solution}
+\begin{enumerate}[nosep, label=\alph*)]
+\item \textit{No}
+\item \textit{Yes}
+\item \textit{No}
+\end{enumerate}
+\subsubsection{Explanation}
+\textbf{Part A}\\
+Since not all elements within the proposed partition are disjoint (i.e. the sets $\{2, 3\}$ and $\{2, 6\}$), it cannot be a partition of $S$.\\
+\textbf{Part B}\\
+Since all elements within the proposed partition are disjoint and the union of them is equal to $S$, it is a partition of $S$.\\
+\textbf{Part C}\\
+Since $5$ is not in any of the elements within the proposed partition, the union of the elements is not equal to $S$.
+\section{Problem 3}
+Suppose $A$ is a set with 8 elements. What is $|\mathcal{P}(A)|$?
+\subsection{Solution}
+$|\mathcal{P}(A)|=2^8=256$
+\subsubsection{Explanation}
+Note that $|\mathcal{P}(A)| = 2^{|A|}$.\\
+This can be proven using induction.\\
+\textbf{Base Case:} Show $|\mathcal{P}(\emptyset)|=2^{|\emptyset|}$.\\
+$|\emptyset|=0$\\
+$|\mathcal{P}(\emptyset)| = |\{\emptyset\}| = 1$\\
+$2^{|\emptyset|} = 2^0 = 1 = |\mathcal{P}(\emptyset)|$.\\
+\textbf{Induction Hypothesis:} Assume for some fixed $k \geq 0, \forall$ sets $S$, if $|S|=k$, then $|\mathcal{P}(s)|=2^k$.\\
+\textbf{Induction Step:} Let $T$ be a set with $|T| = k+1$. Let $S = T - \{a\}$ for an arbitrary element $a$ in $T$. Thus, $|S| = k$. Let $B$ denote the set that contains all the elements in $\mathcal{P}(S)$ with $a$ adjoined to them. Here, note that $|\mathcal{P}(S)| = |B|$, since the construction of $B$ preserves the equality of cardinality. Then, note that $\mathcal{P}(T) = \mathcal{P}(S) \cup B$. Hence $|\mathcal{P}(T)| = |\mathcal{P}(S)| + |B|$. Since $|\mathcal{P}(S)| = |B|$, $|\mathcal{P}(T)| = 2 \cdot |\mathcal{P}(S)|$. By the inductive step, since $|\mathcal{P}(S)| = 2^k$, $|\mathcal{P}(T)| = 2 \cdot 2^k = 2^{k+1} = 2^{|T|}$.\\
+$\therefore$ By induction, $|\mathcal{P}(A)| = 2^{|A|}$ for some arbitrary set $A$.
+\section{Problem 4}
+Define sets $A$ and $B$ as follows:\\
+\indent $A = \{m \in \mathbb{Z} \mid m = 3a \;\text{for some integer a}\}$\\
+\indent $B = \{n \in \mathbb{Z} \mid n = 3b - 3 \;\text{for some integer b}\}$\\
+Show $A = B$.
+\subsection{Solution}
+\subsubsection{Part 1}
+\textbf{Show:} $A \subseteq B$.\\
+Let $x \in A$. By definition of $A$, $x = 3a$ for some $a \in \mathbb{Z}$. Let $b = a + 1$. Note that by closure under addition, $b$ must be an integer. By substitution, $3b - 3 = 3(a + 1) - 3 = 3a + 3 - 3 = 3a = x$. Hence, $x = 3b - 3$ for some $b \in \mathbb{Z}$ (namely $b = a + 1$). In other words, $x \in B$ and $A \subseteq B$.
+\subsubsection{Part 2}
+\textbf{Show:} $B \subseteq A$.\\
+Let $x \in B$. By definition of $B$, $x = 3b - 3$ for some $b \in \mathbb{Z}$. Let $a = b - 1$. Note that by closure under addition, $a$ must be an integer. By substitution, $3a = 3(b - 1) = 3b - 3 = x$. Thus, $x = 3a$ for some $a \in \mathbb{Z}$ (namely $a = b - 1$). In other words, $x \in A$ and $B \subseteq A$.\\~\\
+$\therefore$ Since $A \subseteq B$ and $B \subseteq A$, $A = B$.
+\section{Problem 5}
+Prove the statement using the subset method if it is true and find a counterexample if it is
+false. Assume all sets are subsets of a universal set $U$.
+\begin{enumerate}[nosep, label=\alph*)]
+\item For all sets $A$, $B$, and $C$, $A - (B - C) = (A - B) - C$.
+\item For all sets $A$ and $B$, $A \cap (A \cup B) = A$.
+\end{enumerate}
+\subsection{Solution}
+\begin{enumerate}[nosep, label=\alph*)]
+\item False
+\item True
+\end{enumerate}
+\subsubsection{Part A}
+Let $A = \{1, 2, 3, 4, 5\}$, $B = \{2, 3\}$, and $C = \{3\}$.\\
+Here, $A - (B - C) = A - (\{2\}) = \{1, 3, 4, 5\}$.\\
+Additionally, $(A - B) - C = (\{1, 4, 5\}) - C = \{1, 4, 5\}$.\\
+Note that $A - (B - C) = \{1, 3, 4, 5\} \neq (A - B) - C = \{1, 4, 5\}$. Hence, the statement is false.
+\subsubsection{Part B}
+\textbf{Part 1}\\
+\textbf{Show:} $A \cap (A \cup B) \subseteq A$.\\
+Let $x \in A \cap (A \cup B)$. By definition of intersection, $x \in A$ and $x \in (A \cup B)$. Therefore, by simplification, $x \in A$ and thus $A \cap (A \cup B) \subseteq A$.\\~\\
+\textbf{Part 2}\\
+\textbf{Show:} $A \subseteq A \cap (A \cup B)$.\\
+Let $x \in A$. By definition of union, if an element is in $A \cup B$, then the element must be in $A$ or $B$. Hence, since $x \in A$, $x \in (A \cup B)$. Furthermore, by definition of an intersection, if an element is in both $A$ and $B$, then it must also be in $A \cap B$. Since $x \in A$ and $x \in (A \cup B)$, $x \in A \cap (A \cup B)$ and thus $A \subseteq A \cap (A \cup B)$.\\~\\
+$\therefore$ Since $A \cap (A \cup B) \subseteq A$ and $A \subseteq A \cap (A \cup B)$, $A \cap (A \cup B) = A$.
+\section{Problem 6}
+State De Morgan's Laws for sets.
+\subsection{Solution}
+\begin{enumerate}[nosep]
+\item The complement of the union of two sets is the intersection of the complements of the two sets.
+\item The complement of the intersection of two sets is the union of the complements of the two sets.
+\end{enumerate}
+\end{document}

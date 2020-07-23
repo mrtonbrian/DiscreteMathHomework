@@ -1,0 +1,113 @@
+% Boilerplate from: https://github.com/jdavis/latex-homework-template/blob/master/homework.tex
+\documentclass[table]{article}
+\usepackage[table]{xcolor}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{logicproof}
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkTitle}
+\rhead{}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setcounter{secnumdepth}{0}
+
+\newcommand{\hmwkTitle}{Final Exam}
+\newcommand{\hmwkDueDate}{23 July 2020}
+\newcommand{\hmwkClass}{Discrete Structures}
+\newcommand{\hmwkClassTime}{Section 201}
+\newcommand{\hmwkClassInstructor}{Professor Jensen}
+\newcommand{\hmwkAuthorName}{\textbf{Brian Ton}}
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+    \vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\newcolumntype{g}{>{\columncolor{yellow!20}}c}
+
+\begin{document}
+\maketitle
+\pagebreak
+\section{Problem 1}
+Write the contrapositive of ``If $a \nmid b$ and $a \mid c$, then $a \nmid (b + c)$.''
+\subsection{Solution}
+If $a \mid (b+c)$ then $a \mid b$ or $a \nmid c$.
+\subsubsection{Explanation}
+Let $p$ be the statement $a \nmid b$, $q$ be the statement $a \mid c$, and $r$ be the statement $a \nmid (b+c)$.\\
+Symbolically, the original statement can thus be written as $(p \land q) \rightarrow r$. The contrapositive would then be $\neg r \rightarrow \neg (p \land q)$ which by De Morgan's law would be $\neg r \rightarrow (\neg p \lor \neg q)$, which in English would be ``If $a \mid (b+c)$ then $a \mid b$ or $a \nmid c$.''
+\section{Problem 2}
+Consider the function $f$ from set $X$ to set $Y$. Write the negation of the following definition for $f$ to
+be one-to-one.\\
+$\forall x_1, x_2 \in X$, if $f(x_1)=f(x_2)$, then $x_1=x_2$.
+\subsection{Solution}
+$\exists x_1, x_2 \in X$, such that $f(x_1)=f(x_2)$ and $x_1 \neq x_2$.
+\subsubsection{Explanation}
+Writing the original statement in full symbolic form, it becomes $\forall x_1, x_2 \in X, (f(x_1)=f(x_2) \rightarrow x_1=x_2)$.
+Note that we use logical equivalences to find the negation.\\
+\begin{align*}
+\neg \forall x_1, x_2 \in X, (f(x_1)=f(x_2) \rightarrow x_1=x_2)
+&\equiv \exists x_1, x_2 \in X, \neg (f(x_1)=f(x_2) \rightarrow x_1=x_2) && \text{(De Morgan's Law)}\\
+&\equiv \exists x_1, x_2 \in X, (f(x_1)=f(x_2) \land \neg (x_1=x_2)) && \text{$(\neg (p \rightarrow q) \equiv p \land \neg q)$}\\
+&\equiv \exists x_1, x_2 \in X, (f(x_1)=f(x_2) \land (x_1 \neq x_2))\\
+\end{align*}
+Putting this back to match the original statement, $\exists x_1, x_2 \in X$, such that $f(x_1)=f(x_2)$ and $x_1 \neq x_2$.
+\section{Problem 3}
+$\sqrt{3}$ is irrational. Use proof by contradiction to prove the statement ``$4\sqrt{3} - 7$ is irrational.''
+\subsection{Solution}
+\textbf{Proof By Contradiction}
+Assume $4\sqrt{3} - 7$ is rational.\\
+By definition of a rational number, $4\sqrt{3} - 7 = \frac{p}{q}$ for some integers $p$ and $q$. Hence, we can write $4\sqrt{3} = \frac{p}{q} + 7$. This would mean that $4\sqrt{3} = \frac{p+7q}{q}$. Then, $\sqrt{3} = \frac{p+7q}{4q}$. Note that by closure of the integers under addition and multiplication, $p+7q$ and $4q$ is an integer. However, this would mean that $\sqrt{3}$ can be written as the ratio of two integers, which would mean that it is rational by the definition of a rational number. This is a contradiction, by the given information. Hence, the initial assumption that $4\sqrt{3} - 7$ is rational is false, meaning that $4\sqrt{3} - 7$ is irrational.
+\section{Problem 4}
+A sequence $m_1, m_2, m_3, ...$ is defined by letting $m_1 = 1$ and $m_k = 2m_{k-1} + 1$, for all integers $k \geq 2$. Use induction to show that $m_n = 2^n - 1$, for all integers $n \geq 1$.
+\subsection{Solution}
+\textbf{Proof By Induction}\\
+\textbf{Base Case:} Show that $m_1 = 2^n-1$ for $n \geq 1$. By definition, $m_1 = 1$. Note that for $n=1$, $2^1-1=2-1=1=m_1$. This completes the basis step.\\
+\textbf{Inductive Hypothesis:} Assume that $m_k = 2^k-1$ for some fixed integer $k \geq 1$.\\
+\textbf{Inductive Step:} By definition of the sequence:
+\begin{align*}
+m_{k+1}
+&= 2m_k+1\\
+&= 2(2^k-1)+1 && \text{(Inductive Hypothesis)}\\
+&= 2^{k+1} - 2 + 1\\
+&= 2^{k+1} - 1
+\end{align*}
+Hence, by induction, $m_n = 2^n-1$.
+\section{Problem 5}
+\begin{enumerate}[nosep,label=\alph*)]
+\item State the Well-Ordering Principle for the integers.
+\item Does the set of all positive real numbers have a least element? If not, explain why the well-ordering principle is not violated.
+\item Does the set of all nonnegative integers $n$ such that $n^2 < n$ have a least element? If not, explain why the well-ordering principle is not violated.
+\end{enumerate}
+\subsection{Solution}
+\begin{enumerate}[nosep,label=\alph*)]
+\item Every nonempty set of nonnegative integers has a least element.
+\item No, the set of positive real numbers does not have a least element. For instance, let $x$ be the smallest positive real number. However, note that $\frac{x}{2}$ is a positive real number and $\frac{x}{2} < x$, which means that there can be no smallest positive real number. This does not violate the well-ordering property, as the property's definition states that it applies to integers, not to real numbers.
+\item There does not exist a least element in the set of all nonnegative integers $n$ such that $n^2 < n$. This is because $n^2<n$ only for real numbers $0 < n < 1$. Hence, the set will be empty, since there are no integers between $0$ and $1$. This does not violate the well-ordering property since the well ordering property only applies to nonempty sets.
+\end{enumerate}
+\end{document}
